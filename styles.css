@@ -1,4 +1,4 @@
-  /* Layout: a dev-tools box-model hero (margin / padding / content wrapping the name), then a quiet two-column
+  /* Layout: a plain name-and-title hero, then a quiet two-column
      ledger: small mono label on the left, content on the right; stacks to one column on phones. */
   :root {
     --font-display: 'Bricolage Grotesque', 'Avenir Next', 'Segoe UI', system-ui, sans-serif;
@@ -12,26 +12,17 @@
     --line: #d5dae6;
     --accent: #c81e4a;
     --accent-soft: rgba(200, 30, 74, 0.45);
-
-    --bm-margin: rgba(240, 160, 70, 0.20);
-    --bm-padding: rgba(120, 170, 70, 0.22);
-    --bm-content: rgba(70, 130, 200, 0.20);
-    --bm-edge: rgba(18, 23, 42, 0.30);
   }
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
       --bg: #0e1220; --surface: #151b2e; --fg: #e6e9f4; --muted: #9aa3bd; --line: #29314a;
       --accent: #ff6b8a; --accent-soft: rgba(255, 107, 138, 0.5);
-      --bm-margin: rgba(240, 160, 70, 0.16); --bm-padding: rgba(120, 190, 80, 0.16);
-      --bm-content: rgba(80, 150, 230, 0.20); --bm-edge: rgba(230, 233, 244, 0.35);
       color-scheme: dark;
     }
   }
   :root[data-theme="dark"] {
     --bg: #0e1220; --surface: #151b2e; --fg: #e6e9f4; --muted: #9aa3bd; --line: #29314a;
     --accent: #ff6b8a; --accent-soft: rgba(255, 107, 138, 0.5);
-    --bm-margin: rgba(240, 160, 70, 0.16); --bm-padding: rgba(120, 190, 80, 0.16);
-    --bm-content: rgba(80, 150, 230, 0.20); --bm-edge: rgba(230, 233, 244, 0.35);
     color-scheme: dark;
   }
 
@@ -54,27 +45,14 @@
 
   /* ---------- Hero ---------- */
   .hero { display: flex; flex-direction: column; gap: 36px; }
-  .bm {
-    position: relative;
-    border-radius: 4px;
-    padding: 28px 14px 14px;
-  }
-  .bm__label {
-    position: absolute; top: 7px; left: 10px;
-    font-family: var(--font-mono); font-size: 0.6875rem; letter-spacing: 0.05em;
-    color: var(--muted);
-  }
-  .bm--margin { width: min(100%, 46rem); background: var(--bm-margin); border: 1.5px dashed var(--bm-edge); }
-  .bm--padding { background: var(--bm-padding); border: 1px solid var(--bm-edge); }
-  .bm--content { background: var(--bm-content); border: 1px solid var(--bm-edge); display: flex; flex-direction: column; gap: 14px; }
   h1 {
     font-family: var(--font-display);
     font-weight: 700;
-    font-size: clamp(2.4rem, 12vw, 6.5rem);
-    line-height: 0.95;
+    font-size: clamp(2.6rem, 9vw, 4.75rem);
+    line-height: 1;
     letter-spacing: -0.02em;
-    text-transform: uppercase;
   }
+  .hero__title { display: flex; flex-direction: column; gap: 14px; }
   .role {
     font-family: var(--font-mono);
     font-size: 0.8125rem;
